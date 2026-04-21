@@ -38,6 +38,16 @@
 
             <!-- Processing Section -->
             <section class="section processing-section">
+                <div class="ocr-controls">
+                    <label for="ocrLanguage">OCR Language:</label>
+                    <select id="ocrLanguage">
+                        <option value="eng" selected>English</option>
+                        <option value="hin">Hindi</option>
+                        <option value="chi_sim">Mandarin (Simplified)</option>
+                        <option value="deu">German</option>
+                        <option value="fra">French</option>
+                    </select>
+                </div>
                 <div class="button-group">
                     <button id="extractBtn" class="btn btn-primary" disabled>
                         <span class="btn-text">Extract Text from Image</span>
@@ -72,6 +82,15 @@
                         <option value="short">Short (1-2 sentences)</option>
                         <option value="medium" selected>Medium (3-4 sentences)</option>
                         <option value="long">Long (5-7 sentences)</option>
+                    </select>
+                    
+                    <label for="summaryLanguage">Summary Language:</label>
+                    <select id="summaryLanguage">
+                        <option value="english" selected>English</option>
+                        <option value="hindi">Hindi</option>
+                        <option value="mandarin">Mandarin (Simplified)</option>
+                        <option value="german">German</option>
+                        <option value="french">French</option>
                     </select>
                 </div>
 

@@ -12,6 +12,8 @@ const copyNotification = document.getElementById('copyNotification');
 const summarizerSection = document.getElementById('summarizerSection');
 const summarizeBtn = document.getElementById('summarizeBtn');
 const summaryLength = document.getElementById('summaryLength');
+const summaryLanguage = document.getElementById('summaryLanguage');
+const ocrLanguage = document.getElementById('ocrLanguage');
 const summaryContainer = document.getElementById('summaryContainer');
 const summaryText = document.getElementById('summaryText');
 const copySummaryBtn = document.getElementById('copySummaryBtn');
@@ -99,7 +101,7 @@ extractBtn.addEventListener('click', async () => {
         // Use Tesseract.js for OCR
         const { data } = await Tesseract.recognize(
             previewImage.src,
-            'eng',
+            ocrLanguage.value,
             { logger: m => console.log('OCR Progress:', m) }
         );
 
@@ -155,7 +157,8 @@ summarizeBtn.addEventListener('click', async () => {
             },
             body: JSON.stringify({
                 text: extractedTextContent,
-                length: summaryLength.value
+                length: summaryLength.value,
+                language: summaryLanguage.value
             })
         });
 

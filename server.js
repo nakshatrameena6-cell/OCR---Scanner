@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
 
 // API endpoint for text summarization
 app.post('/api/summarize', async (req, res) => {
-    const { text, length } = req.body;
+    const { text, length, language } = req.body;
 
     // Validate input
     if (!text || !text.trim()) {
@@ -52,6 +52,17 @@ app.post('/api/summarize', async (req, res) => {
                 lengthInstruction = '3-4 sentences';
         }
 
+        // Map language values to full names
+        const languageNames = {
+            english: 'English',
+            hindi: 'Hindi',
+            mandarin: 'Simplified Chinese (Mandarin)',
+            german: 'German',
+            french: 'French'
+        };
+
+        const targetLanguage = languageNames[language] || 'English';
+
         // Call Claude API for summarization
         const message = await anthropic.messages.create({
             model: 'claude-3-5-sonnet-20241022',
@@ -59,7 +70,7 @@ app.post('/api/summarize', async (req, res) => {
             messages: [
                 {
                     role: 'user',
-                    content: `Please provide a concise summary of the following text in exactly ${lengthInstruction}. Focus on the main points and key information. Do not include any preamble or explanation, just provide the summary.\n\nText:\n${text}`
+                    content: `Please provide a concise summary of the following text in ${targetLanguage} in exactly ${lengthInstruction}. Focus on the main points and key information. Do not include any preamble or explanation, just provide the summary.\n\nText:\n${text}`
                 }
             ]
         });
