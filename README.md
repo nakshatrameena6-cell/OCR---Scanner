@@ -258,29 +258,5 @@ MIT License - Feel free to use and modify
 - [ ] Export as PDF
 - [ ] Integration with more AI models
 
-## 📞 Support
 
-If you encounter any issues:
 
-1. Check the troubleshooting section above
-2. Verify your API key is valid
-3. Check console for error messages (F12)
-4. Ensure all dependencies are installed
-
-## 🌟 Features Highlight
-
-| Feature | Description | Status |
-|---------|-------------|--------|
-| Image Upload | Drag & drop or click to upload | ✅ |
-| OCR Extraction | Convert images to text | ✅ |
-| AI Summarization | Claude-powered summaries | ✅ |
-| Copy Function | One-click clipboard copy | ✅ |
-| Responsive Design | Mobile-friendly interface | ✅ |
-| Dark Theme | Beautiful black & gold UI | ✅ |
-| Error Handling | User-friendly error messages | ✅ |
-
----
-
-**Made with ❤️ Using Claude AI** 
-
-Happy extracting and summarizing! 🎉
