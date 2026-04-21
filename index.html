@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Text Extractor & Summarizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>✨ AI Text Extractor & Summarizer</h1>
+                <p>Extract text from images and summarize with AI power</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Upload Section -->
+            <section class="section upload-section">
+                <h2>Upload Image</h2>
+                <div class="upload-area" id="uploadArea">
+                    <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    <p>Drag and drop your image here or click to select</p>
+                    <input type="file" id="imageInput" accept="image/*" hidden>
+                </div>
+                <div id="previewContainer" class="preview-container hidden">
+                    <img id="previewImage" alt="Preview" class="preview-image">
+                    <button id="clearImageBtn" class="btn btn-secondary">Clear</button>
+                </div>
+            </section>
+
+            <!-- Processing Section -->
+            <section class="section processing-section">
+                <div class="button-group">
+                    <button id="extractBtn" class="btn btn-primary" disabled>
+                        <span class="btn-text">Extract Text from Image</span>
+                        <span class="loading-spinner hidden" id="extractSpinner"></span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Extracted Text Section -->
+            <section class="section result-section hidden" id="extractedTextSection">
+                <div class="section-header">
+                    <h2>Extracted Text</h2>
+                    <button id="copyExtractedBtn" class="btn btn-small btn-gold">Copy Text</button>
+                </div>
+                <div id="extractedText" class="text-area"></div>
+                <div id="copyNotification" class="copy-notification hidden">Copied to clipboard!</div>
+            </section>
+
+            <!-- Summarizer Section -->
+            <section class="section result-section hidden" id="summarizerSection">
+                <div class="section-header">
+                    <h2>Text Summarizer</h2>
+                    <button id="summarizeBtn" class="btn btn-primary">
+                        <span class="btn-text">Generate Summary</span>
+                        <span class="loading-spinner hidden" id="summarizeSpinner"></span>
+                    </button>
+                </div>
+                
+                <div class="summarizer-controls">
+                    <label for="summaryLength">Summary Length:</label>
+                    <select id="summaryLength">
+                        <option value="short">Short (1-2 sentences)</option>
+                        <option value="medium" selected>Medium (3-4 sentences)</option>
+                        <option value="long">Long (5-7 sentences)</option>
+                    </select>
+                </div>
+
+                <div id="summaryContainer" class="hidden">
+                    <h3>Summary</h3>
+                    <div id="summaryText" class="text-area"></div>
+                    <button id="copySummaryBtn" class="btn btn-small btn-gold">Copy Summary</button>
+                    <div id="copySummaryNotification" class="copy-notification hidden">Copied to clipboard!</div>
+                </div>
+            </section>
+
+            <!-- Error Message -->
+            <div id="errorMessage" class="error-message hidden"></div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Powered by AI Technology | Extract & Summarize with Ease</p>
+        </footer>
+    </div>
+
+    <!-- Load Tesseract.js for OCR from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5.0.0/dist/tesseract.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
